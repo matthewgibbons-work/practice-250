@@ -1,0 +1,36 @@
+body {
+  max-width: 45rem;
+  margin: 0 auto;
+  padding: 1rem;
+  font-family: system-ui, sans-serif;
+  line-height: 1.5;
+  color: #1f2430;
+  background: #fffdf7;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+caption {
+  text-align: left;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+th,
+td {
+  border: 1px solid #8a8f99;
+  padding: 0.5rem;
+  text-align: left;
+  vertical-align: top;
+}
+
+thead th {
+  background: #f1ecdf;
+}
+
+a {
+  color: #8a1c1c;
+}
