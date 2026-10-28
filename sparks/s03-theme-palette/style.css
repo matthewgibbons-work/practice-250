@@ -1,0 +1,86 @@
+/* Palette
+   Box Cream     #FFF8E7  page background
+   Midnight Navy #1B2A4A  text
+   Tomato Red    #B3261E  accent (links, buttons)
+   Prize Yellow  #FFD23F  highlight (behind text)
+   Gradient end  #FF9F43  orange, banner only */
+
+body {
+  margin: 0;
+  font-family: system-ui, sans-serif;
+  color: #1B2A4A;
+  background: #FFF8E7;
+}
+
+.banner {
+  padding: 2rem 1rem;
+  background-image: linear-gradient(90deg, #FFD23F, #FF9F43);
+}
+
+main,
+footer {
+  max-width: 48rem;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding: 0;
+  list-style: none;
+}
+
+.card {
+  flex: 1 1 10rem;
+  padding: 1rem;
+  border: 2px solid #1B2A4A;
+  border-radius: 0.5rem;
+}
+
+.swatch {
+  height: 4rem;
+  border: 1px solid #1B2A4A;
+  border-radius: 0.25rem;
+}
+
+.swatch-background { background: #FFF8E7; }
+.swatch-text { background: #1B2A4A; }
+.swatch-accent { background: #B3261E; }
+.swatch-highlight { background: #FFD23F; }
+
+a {
+  color: #B3261E;
+  text-decoration: underline;
+}
+
+mark {
+  color: #1B2A4A;
+  background: #FFD23F;
+}
+
+button {
+  padding: 0.5rem 1rem;
+  border: 0;
+  border-radius: 0.25rem;
+  color: #FFF8E7;
+  background: #B3261E;
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline: 3px solid #1B2A4A;
+  outline-offset: 2px;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+th,
+td {
+  padding: 0.5rem;
+  border: 1px solid #1B2A4A;
+  text-align: left;
+}
