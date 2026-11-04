@@ -1,0 +1,141 @@
+/* Width and height include padding and border, so boxes are the size you set */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+:root {
+  /* Saturday-morning palette (from my P1 fan page) */
+  --blue: #1e2a9e;   /* Robot Blue: page background */
+  --purple: #5a1a9a; /* Laser Purple: card background */
+  --yellow: #ffe14d; /* Bolt Yellow: headings, links, nav buttons */
+  --white: #ffffff;  /* Chrome White: body text */
+
+  /* Three spacing sizes, reused everywhere */
+  --space-s: 0.5rem;
+  --space-m: 1rem;
+  --space-l: 2rem;
+}
+
+body {
+  margin: 0;
+  padding: var(--space-m);
+  font-family: "Nunito", system-ui, sans-serif;
+  font-size: 1.125rem;
+  line-height: 1.6;
+  color: var(--white);
+  background: var(--blue);
+}
+
+.site-header,
+main,
+footer {
+  max-width: 60rem;
+  margin: 0 auto;
+}
+
+h1,
+h2,
+h3 {
+  font-family: "Bungee", system-ui, sans-serif;
+  /* Bungee only comes in one weight */
+  font-weight: 400;
+  line-height: 1.15;
+  color: var(--yellow);
+}
+
+/* Header: a flex row, title left and nav right, wrapping when narrow */
+.site-header {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--space-m);
+  padding-bottom: var(--space-m);
+}
+
+.site-header h1 {
+  margin: 0;
+  font-size: 2rem;
+}
+
+.site-nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-s);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* Padding makes the nav links tall: 28.8px of text + 2 × 8px = 44.8px */
+.site-nav a {
+  display: block;
+  padding: var(--space-s) var(--space-m);
+  border-radius: var(--space-s);
+  font-weight: 800;
+  color: var(--blue);
+  background: var(--yellow);
+}
+
+.site-nav [aria-current="page"] {
+  text-decoration-thickness: 0.2em;
+}
+
+main h2 {
+  font-size: 1.75rem;
+  margin: var(--space-l) 0 var(--space-s);
+}
+
+/* Cards: a wrapping row. Each card starts at 15rem and grows to share the row,
+   so the browser fits one, two, or three per row without media queries */
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-m);
+  margin: var(--space-l) 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* Each card is a flex column, so its link can sit at the bottom */
+.card {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 15rem;
+  padding: var(--space-m);
+  border: 0.25rem solid var(--yellow);
+  border-radius: var(--space-m);
+  background: var(--purple);
+}
+
+.card h3 {
+  margin: 0 0 var(--space-s);
+  font-size: 1.25rem;
+}
+
+.card p {
+  margin: 0 0 var(--space-m);
+}
+
+/* The auto top margin takes up the spare space and pushes the link down */
+.card a {
+  margin-top: auto;
+  align-self: flex-start;
+}
+
+/* inline-block makes the link as tall as its line (28.8px), above 24px */
+footer a {
+  display: inline-block;
+}
+
+a {
+  color: var(--yellow);
+  text-decoration: underline;
+}
+
+:focus-visible {
+  outline: 3px solid var(--white);
+  outline-offset: 3px;
+}
