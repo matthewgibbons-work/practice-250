@@ -1,0 +1,83 @@
+/* Night at the drive-in: dark sky, cream text, marquee yellow */
+:root {
+  --sky: #14142b;     /* Night Sky: page background */
+  --cream: #f5ecd7;   /* Popcorn: body text */
+  --marquee: #ffcc4d; /* Marquee Bulb: headings and links */
+
+  /* Type scale: body is a step above 1rem for reading in a dark car */
+  --size-body: 1.125rem;
+  --size-h3: 1.5rem;
+  --size-h2: 2rem;
+  --size-h1: 3rem;
+}
+
+body {
+  margin: 0;
+  padding: 1rem;
+  font-family: system-ui, sans-serif;
+  font-size: var(--size-body);
+  line-height: 1.6;
+  color: var(--cream);
+  background: var(--sky);
+}
+
+/* ch is the width of a "0", so 65ch keeps lines near 65 characters */
+header,
+main,
+footer {
+  max-width: 65ch;
+  margin: 0 auto;
+}
+
+h1,
+h2,
+h3 {
+  font-family: "Righteous", system-ui, sans-serif;
+  /* Righteous only comes in one weight; this stops the browser faking bold */
+  font-weight: 400;
+  line-height: 1.15;
+  color: var(--marquee);
+}
+
+h1 {
+  font-size: var(--size-h1);
+  margin: 1rem 0 0.25rem;
+}
+
+h2 {
+  font-size: var(--size-h2);
+  margin: 2.5rem 0 0.5rem;
+}
+
+h3 {
+  font-size: var(--size-h3);
+  margin: 1.5rem 0 0.25rem;
+}
+
+/* Keeps "Drive-In" from splitting at its hyphen on narrow screens */
+.nowrap {
+  white-space: nowrap;
+}
+
+.tagline {
+  margin-top: 0;
+  font-size: 1.25rem;
+}
+
+blockquote {
+  margin: 1.5rem 0;
+  padding-left: 1rem;
+  border-left: 0.25rem solid var(--marquee);
+  font-size: 1.25rem;
+  font-style: italic;
+}
+
+a {
+  color: var(--marquee);
+  text-decoration: underline;
+}
+
+:focus-visible {
+  outline: 3px solid var(--cream);
+  outline-offset: 3px;
+}
