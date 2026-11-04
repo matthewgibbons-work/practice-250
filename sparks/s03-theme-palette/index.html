@@ -3,92 +3,119 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Theme palette: Saturday-morning cereal box</title>
+  <title>S03 · Theme palette: Saturday Morning Cereal</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header class="banner">
-    <h1>Saturday-Morning Cereal Box</h1>
-    <p>A style tile for a bright, retro cartoon theme.</p>
+  <header class="hero">
+    <h1>Saturday Morning Cereal</h1>
   </header>
 
   <main>
     <section aria-labelledby="about">
       <h2 id="about">About this theme</h2>
-      <p>This palette borrows from the cereal boxes on the table while the cartoons played: a warm cream like the inside of the box, a deep navy for the words, a tomato red for anything you can click, and a sunny yellow for the prize inside. It should feel loud and happy at a glance. The navy keeps it readable, even on a phone in sunlight. I'll reuse it as the start of my P1 show page.</p>
+      <p>This palette is a 1990s cereal box at 7 am on a Saturday: loud, sugary, and a little ridiculous. The red is the box that shouts from the shelf, and the yellow is the prize inside. The cream is a bowl of milk and the deep grape is the cartoon outline that holds it all together. It's made for phones between classes, so every color can be loud while the text stays easy to read.</p>
     </section>
 
     <section aria-labelledby="palette">
       <h2 id="palette">The palette</h2>
       <ul class="cards">
         <li class="card">
-          <div class="swatch swatch-background"></div>
-          <h3>Box Cream</h3>
-          <p>Role: page background</p>
-          <p><code>#FFF8E7</code> · <code>rgb(255, 248, 231)</code> · <code>hsl(42, 100%, 95%)</code></p>
+          <div class="swatch swatch-bg"></div>
+          <h3>Milk</h3>
+          <p>Role: page background.</p>
+          <dl>
+            <dt>Hex</dt><dd><code>#fff6e0</code></dd>
+            <dt>RGB</dt><dd><code>rgb(255 246 224)</code></dd>
+            <dt>HSL</dt><dd><code>hsl(43 100% 94%)</code></dd>
+          </dl>
         </li>
         <li class="card">
           <div class="swatch swatch-text"></div>
-          <h3>Midnight Navy</h3>
-          <p>Role: text</p>
-          <p><code>#1B2A4A</code> · <code>rgb(27, 42, 74)</code> · <code>hsl(221, 47%, 20%)</code></p>
+          <h3>Grape Night</h3>
+          <p>Role: body text and outlines.</p>
+          <dl>
+            <dt>Hex</dt><dd><code>#1b1a4a</code></dd>
+            <dt>RGB</dt><dd><code>rgb(27 26 74)</code></dd>
+            <dt>HSL</dt><dd><code>hsl(241 48% 20%)</code></dd>
+          </dl>
         </li>
         <li class="card">
           <div class="swatch swatch-accent"></div>
-          <h3>Tomato Red</h3>
-          <p>Role: accent (links and buttons)</p>
-          <p><code>#B3261E</code> · <code>rgb(179, 38, 30)</code> · <code>hsl(3, 71%, 41%)</code></p>
+          <h3>Cereal Box Red</h3>
+          <p>Role: accent for links, the button, and the heading gradient.</p>
+          <dl>
+            <dt>Hex</dt><dd><code>#c8102e</code></dd>
+            <dt>RGB</dt><dd><code>rgb(200 16 46)</code></dd>
+            <dt>HSL</dt><dd><code>hsl(350 85% 42%)</code></dd>
+          </dl>
         </li>
         <li class="card">
           <div class="swatch swatch-highlight"></div>
-          <h3>Prize Yellow</h3>
-          <p>Role: highlight (behind text)</p>
-          <p><code>#FFD23F</code> · <code>rgb(255, 210, 63)</code> · <code>hsl(46, 100%, 62%)</code></p>
+          <h3>Honey Yellow</h3>
+          <p>Role: highlight behind dark text, like table headers.</p>
+          <dl>
+            <dt>Hex</dt><dd><code>#ffd23f</code></dd>
+            <dt>RGB</dt><dd><code>rgb(255 210 63)</code></dd>
+            <dt>HSL</dt><dd><code>hsl(46 100% 62%)</code></dd>
+          </dl>
         </li>
       </ul>
     </section>
 
     <section aria-labelledby="sample">
-      <h2 id="sample">Sample text</h2>
-      <p>Every Saturday at 7 am the cartoons started, and the <mark>best part of the box</mark> was the prize at the bottom. Read more on the <a href="../../archive/cartoon/">favorite cartoon page</a>.</p>
-      <button type="button">Pour another bowl</button>
+      <h2 id="sample">Sample</h2>
+      <p>Pour a bowl, find the remote, and <mark>don't miss the prize at the bottom of the box</mark>. The cartoons start at seven, and the <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/color_value">MDN guide to CSS colors</a> is open in another tab.</p>
+      <p><button type="button">Pour another bowl</button></p>
     </section>
 
     <section aria-labelledby="contrast">
       <h2 id="contrast">Contrast checks</h2>
       <table>
-        <caption>Every text and background pair, checked in the WebAIM contrast checker</caption>
+        <caption>Every text and background pair on this page</caption>
         <thead>
           <tr>
-            <th scope="col">Pair</th>
+            <th scope="col">Text color</th>
+            <th scope="col">Background</th>
+            <th scope="col">Where it's used</th>
             <th scope="col">Ratio</th>
             <th scope="col">Good for</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <th scope="row">Navy text on cream</th>
-            <td>13.43:1</td>
+            <td>Grape Night</td>
+            <td>Milk</td>
+            <td>Body text, headings</td>
+            <td>15.09:1</td>
             <td>Body text</td>
           </tr>
           <tr>
-            <th scope="row">Red link on cream</th>
-            <td>6.17:1</td>
+            <td>Cereal Box Red</td>
+            <td>Milk</td>
+            <td>Links</td>
+            <td>5.47:1</td>
             <td>Body text</td>
           </tr>
           <tr>
-            <th scope="row">Cream button text on red</th>
-            <td>6.17:1</td>
+            <td>Milk</td>
+            <td>Cereal Box Red</td>
+            <td>Button; heading at the gradient's lightest (worst) point</td>
+            <td>5.47:1</td>
             <td>Body text</td>
           </tr>
           <tr>
-            <th scope="row">Navy text on yellow highlight</th>
-            <td>9.85:1</td>
+            <td>Milk</td>
+            <td>Grape Night</td>
+            <td>Heading at the gradient's darkest point; button on hover</td>
+            <td>15.09:1</td>
             <td>Body text</td>
           </tr>
           <tr>
-            <th scope="row">Navy heading on the gradient's orange end (its worst point)</th>
-            <td>6.97:1</td>
+            <td>Grape Night</td>
+            <td>Honey Yellow</td>
+            <td>Highlighted text, table header row</td>
+            <td>11.24:1</td>
             <td>Body text</td>
           </tr>
         </tbody>
@@ -97,7 +124,7 @@
   </main>
 
   <footer>
-    <p><a href="../../">Back to my hub</a></p>
+    <p><a href="../../">Back to my DIGHT 250 hub</a></p>
   </footer>
 </body>
 </html>

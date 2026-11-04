@@ -1,86 +1,127 @@
-/* Palette
-   Box Cream     #FFF8E7  page background
-   Midnight Navy #1B2A4A  text
-   Tomato Red    #B3261E  accent (links, buttons)
-   Prize Yellow  #FFD23F  highlight (behind text)
-   Gradient end  #FF9F43  orange, banner only */
+/* Palette: 1990s cereal-box Saturday morning */
+:root {
+  --bg: #fff6e0;        /* Milk: page background */
+  --text: #1b1a4a;      /* Grape Night: body text */
+  --accent: #c8102e;    /* Cereal Box Red: links, button, heading gradient */
+  --highlight: #ffd23f; /* Honey Yellow: highlights behind dark text */
+}
 
 body {
-  margin: 0;
-  font-family: system-ui, sans-serif;
-  color: #1B2A4A;
-  background: #FFF8E7;
-}
-
-.banner {
-  padding: 2rem 1rem;
-  background-image: linear-gradient(90deg, #FFD23F, #FF9F43);
-}
-
-main,
-footer {
-  max-width: 48rem;
+  max-width: 50rem;
   margin: 0 auto;
   padding: 1rem;
+  font-family: system-ui, sans-serif;
+  line-height: 1.5;
+  color: var(--text);
+  background: var(--bg);
+}
+
+/* The heading's worst contrast point is the red end of the gradient */
+.hero {
+  padding: 2rem 1rem;
+  border-radius: 1rem;
+  color: var(--bg);
+  background: linear-gradient(to right, var(--accent), var(--text));
+}
+
+.hero h1 {
+  margin: 0;
+  font-size: 2.5rem;
+  line-height: 1.1;
+}
+
+/* Underlines stay on so links don't rely on color alone */
+a {
+  color: var(--accent);
+  text-decoration: underline;
+}
+
+mark {
+  color: var(--text);
+  background: var(--highlight);
+}
+
+button {
+  padding: 0.5rem 1.25rem;
+  border: 2px solid var(--text);
+  border-radius: 999px;
+  font: inherit;
+  font-weight: bold;
+  color: var(--bg);
+  background: var(--accent);
+}
+
+button:hover {
+  background: var(--text);
+}
+
+/* The offset puts the outline on the cream page, so it shows next to red and yellow too */
+:focus-visible {
+  outline: 3px solid var(--text);
+  outline-offset: 3px;
 }
 
 .cards {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(11rem, 1fr));
   gap: 1rem;
   padding: 0;
   list-style: none;
 }
 
 .card {
-  flex: 1 1 10rem;
   padding: 1rem;
-  border: 2px solid #1B2A4A;
+  border: 2px solid var(--text);
+  border-radius: 0.75rem;
+}
+
+.card h3 {
+  margin: 0.75rem 0 0.25rem;
+}
+
+.card dl {
+  margin: 0.5rem 0 0;
+}
+
+.card dt {
+  font-weight: bold;
+}
+
+.card dd {
+  margin: 0 0 0.25rem;
+}
+
+/* A border keeps the light swatch visible on the light page */
+.swatch {
+  height: 4rem;
+  border: 2px solid var(--text);
   border-radius: 0.5rem;
 }
 
-.swatch {
-  height: 4rem;
-  border: 1px solid #1B2A4A;
-  border-radius: 0.25rem;
-}
-
-.swatch-background { background: #FFF8E7; }
-.swatch-text { background: #1B2A4A; }
-.swatch-accent { background: #B3261E; }
-.swatch-highlight { background: #FFD23F; }
-
-a {
-  color: #B3261E;
-  text-decoration: underline;
-}
-
-mark {
-  color: #1B2A4A;
-  background: #FFD23F;
-}
-
-button {
-  padding: 0.5rem 1rem;
-  border: 0;
-  border-radius: 0.25rem;
-  color: #FFF8E7;
-  background: #B3261E;
-}
-
-a:focus-visible,
-button:focus-visible {
-  outline: 3px solid #1B2A4A;
-  outline-offset: 2px;
-}
+.swatch-bg { background: var(--bg); }
+.swatch-text { background: var(--text); }
+.swatch-accent { background: var(--accent); }
+.swatch-highlight { background: var(--highlight); }
 
 table {
+  width: 100%;
   border-collapse: collapse;
+}
+
+caption {
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+  text-align: left;
 }
 
 th,
 td {
   padding: 0.5rem;
-  border: 1px solid #1B2A4A;
+  border: 1px solid var(--text);
   text-align: left;
+  vertical-align: top;
+}
+
+thead th {
+  background: var(--highlight);
 }
