@@ -1,0 +1,81 @@
+/* Width and height include padding and border, so boxes are the size you set */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Drive-in night palette */
+:root {
+  --sky: #14142b;     /* Night Sky: page background */
+  --cream: #f5ecd7;   /* Popcorn: body text */
+  --marquee: #ffcc4d; /* Marquee Bulb: headings, borders, nav links */
+}
+
+body {
+  margin: 0;
+  padding: 1rem;
+  font-family: system-ui, sans-serif;
+  font-size: 1.125rem;
+  line-height: 1.6;
+  color: var(--cream);
+  background: var(--sky);
+}
+
+header,
+main,
+footer {
+  max-width: 40rem;
+  margin: 0 auto;
+}
+
+h1,
+h2 {
+  line-height: 1.2;
+  color: var(--marquee);
+}
+
+/* Nav: list items sit side by side as inline-blocks */
+.site-nav ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.site-nav li {
+  display: inline-block;
+  margin: 0 0.5rem 0.5rem 0;
+}
+
+/* inline-block lets the padding take up real space, so the link is a big target */
+.site-nav a {
+  display: inline-block;
+  padding: 0.75rem 1rem;
+  border-radius: 0.5rem;
+  font-weight: bold;
+  color: var(--sky);
+  background: var(--marquee);
+  text-decoration: underline;
+}
+
+/* Content boxes: padding, border, and margin are all visible in DevTools */
+.box {
+  margin: 0 0 1.5rem;
+  padding: 1.5rem;
+  border: 0.25rem solid var(--marquee);
+  border-radius: 1rem;
+}
+
+.box h2 {
+  margin-top: 0;
+}
+
+a {
+  color: var(--marquee);
+}
+
+/* The offset puts the outline on the dark page, outside the yellow links */
+:focus-visible {
+  outline: 3px solid var(--cream);
+  outline-offset: 3px;
+}
