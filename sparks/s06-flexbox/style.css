@@ -1,0 +1,121 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Drive-in night palette */
+:root {
+  --sky: #14142b;     /* Night Sky: page background */
+  --cream: #f5ecd7;   /* Popcorn: body text */
+  --marquee: #ffcc4d; /* Marquee Bulb: headings, borders, nav links */
+}
+
+body {
+  margin: 0;
+  padding: 1rem;
+  font-family: system-ui, sans-serif;
+  font-size: 1.125rem;
+  line-height: 1.6;
+  color: var(--cream);
+  background: var(--sky);
+}
+
+.site-header,
+main,
+footer {
+  max-width: 60rem;
+  margin: 0 auto;
+}
+
+h1,
+h2,
+h3 {
+  line-height: 1.2;
+  color: var(--marquee);
+}
+
+/* Header: a flex row, title on the left and nav on the right, wrapping when narrow */
+.site-header {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+.site-header h1 {
+  margin: 0;
+}
+
+/* Nav: another flex row, with gap instead of margins between links */
+.site-nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.site-nav a {
+  display: block;
+  padding: 0.75rem 1rem;
+  border-radius: 0.5rem;
+  font-weight: bold;
+  color: var(--sky);
+  background: var(--marquee);
+}
+
+/* Cards: a wrapping row; each card starts at 13rem and grows to share the space */
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* Each card is a flex column, so its link can sit at the bottom */
+.card {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 13rem;
+  padding: 1.25rem;
+  border: 0.25rem solid var(--marquee);
+  border-radius: 1rem;
+}
+
+.card h3 {
+  margin: 0 0 0.5rem;
+}
+
+.card p {
+  margin: 0 0 1rem;
+}
+
+/* An auto top margin uses up the spare space, pushing the link down */
+.card a {
+  margin-top: auto;
+}
+
+.feature {
+  margin-top: 2.5rem;
+}
+
+/* The page is wide enough for four cards, but paragraphs stay a readable length */
+main > p,
+.feature p {
+  max-width: 65ch;
+}
+
+a {
+  color: var(--marquee);
+  text-decoration: underline;
+}
+
+:focus-visible {
+  outline: 3px solid var(--cream);
+  outline-offset: 3px;
+}

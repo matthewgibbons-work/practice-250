@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>S06 · Flexbox: Starlight Double Features</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <h1>Starlight Double Features</h1>
+    <nav class="site-nav" aria-label="Site">
+      <ul>
+        <li><a href="../../">My hub</a></li>
+        <li><a href="../s05-box-model/">S05 snack bar</a></li>
+        <li><a href="../../archive/">Archive</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <p>Four Fridays, eight pictures. Pick the night you want and jump straight to its showtimes and what to bring.</p>
+
+    <section aria-labelledby="pick">
+      <h2 id="pick">Pick a Friday</h2>
+      <ul class="cards">
+        <li class="card">
+          <h3>Nov 13: Space Night</h3>
+          <p>A friendly comet and a beach party on another planet.</p>
+          <a href="#nov-13">Jump to Space Night showtimes</a>
+        </li>
+        <li class="card">
+          <h3>Nov 20: Monster Night</h3>
+          <p>A giant ant and a swamp creature who just wants a friend.</p>
+          <a href="#nov-20">Jump to Monster Night showtimes</a>
+        </li>
+        <li class="card">
+          <h3>Nov 27: Cowboy Night</h3>
+          <p>Two westerns, one very dusty town.</p>
+          <a href="#nov-27">Jump to Cowboy Night showtimes</a>
+        </li>
+        <li class="card">
+          <h3>Dec 4: Holiday Night</h3>
+          <p>Snow, sleigh bells, and free cocoa at the snack bar.</p>
+          <a href="#dec-4">Jump to Holiday Night showtimes</a>
+        </li>
+      </ul>
+    </section>
+
+    <section class="feature" id="nov-13" aria-labelledby="nov-13-heading">
+      <h2 id="nov-13-heading">Nov 13: Space Night</h2>
+      <p><em>The Comet That Came to Supper</em> starts at sundown, about 5:15. <em>Beach Party on Planet Nine</em> follows at 7:00. Bring a blanket: the space movies always run cold.</p>
+    </section>
+
+    <section class="feature" id="nov-20" aria-labelledby="nov-20-heading">
+      <h2 id="nov-20-heading">Nov 20: Monster Night</h2>
+      <p><em>Them Ants!</em> at 5:10, then <em>The Lonely Swamp</em> at 6:55. Bring a flashlight for the walk to the snack bar, if you're brave.</p>
+    </section>
+
+    <section class="feature" id="nov-27" aria-labelledby="nov-27-heading">
+      <h2 id="nov-27-heading">Nov 27: Cowboy Night</h2>
+      <p><em>Showdown at Dry Creek</em> at 5:05, then <em>The Last Stagecoach</em> at 6:45. Hats are welcome; please take them off once the picture starts.</p>
+    </section>
+
+    <section class="feature" id="dec-4" aria-labelledby="dec-4-heading">
+      <h2 id="dec-4-heading">Dec 4: Holiday Night</h2>
+      <p><em>Snowed In for Christmas</em> at 5:00, then <em>Santa's Night Off</em> at 6:40. Cocoa is free with any snack bar order, so bring a thermos.</p>
+    </section>
+  </main>
+
+  <footer>
+    <p><a href="#pick">Back to the Friday cards</a></p>
+  </footer>
+</body>
+</html>
