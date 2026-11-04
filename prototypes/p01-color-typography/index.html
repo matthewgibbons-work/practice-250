@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>P1 · Color + Typography</title>
+  <link rel="stylesheet" href="home.css">
+</head>
+<body>
+  <header>
+    <nav class="site-nav" aria-label="P1 pages">
+      <ul>
+        <li><a href="index.html" aria-current="page">Home</a></li>
+        <li><a href="museum.html">Museum label</a></li>
+        <li><a href="fan.html">Fan page</a></li>
+      </ul>
+    </nav>
+    <h1>P1 · Color + Typography</h1>
+    <p>Two pages for two very different readers: a museum label for adults in a quiet gallery, and a fan page for a loud Saturday-morning robot cartoon. Below, each page's colors, fonts, the reasons for them, and proof that every text color is readable.</p>
+  </header>
+
+  <main>
+    <section aria-labelledby="museum">
+      <h2 id="museum">The museum label</h2>
+      <p><a href="museum.html">Open the museum label page</a></p>
+
+      <h3>Palette</h3>
+      <ul class="palette">
+        <li><span class="swatch wall"></span>Gallery Wall, <code>#f4f1ea</code>: page background</li>
+        <li><span class="swatch ink"></span>Ink, <code>#222222</code>: body text</li>
+        <li><span class="swatch stone"></span>Stone, <code>#5c5346</code>: captions and small print</li>
+        <li><span class="swatch teal"></span>Exhibit Teal, <code>#1f5f63</code>: headings, links, and the header band</li>
+      </ul>
+
+      <h3>Fonts</h3>
+      <ul>
+        <li>Headings: IBM Plex Sans, weight 600 (fallback: Arial, sans-serif)</li>
+        <li>Body text: Source Serif 4, weight 400 (fallback: Georgia, serif)</li>
+      </ul>
+
+      <h3>Why these choices</h3>
+      <p>A gallery wall is usually off-white, and the label should feel like part of it, not a poster, so the background is a warm cream and the text is near-black. Teal is the one color, used for headings and links, because it reads as calm and official. Stone gray is only for the small print, like the maker, year, and materials under each object, which people read last.</p>
+      <p>IBM Plex Sans is a plain, solid sans-serif that IBM made for its own products, which suits an exhibit about 1980s computers. Source Serif 4 is for the paragraphs because it's easy to read for a few minutes standing up, like a book.</p>
+
+      <h3>Contrast</h3>
+      <table>
+        <caption>Museum label: every text and background pair</caption>
+        <thead>
+          <tr>
+            <th scope="col">Text on background</th>
+            <th scope="col">Used for</th>
+            <th scope="col">Ratio and result</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Ink on Gallery Wall</td><td>Body text, h3</td><td>14.1:1, passes AA for body text</td></tr>
+          <tr><td>Exhibit Teal on Gallery Wall</td><td>h2, links</td><td>6.47:1, passes AA for body text</td></tr>
+          <tr><td>Stone on Gallery Wall</td><td>Captions, footer</td><td>6.69:1, passes AA for body text</td></tr>
+          <tr><td>Gallery Wall on Exhibit Teal</td><td>Header: nav links and h1</td><td>6.47:1, passes AA for body text</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section aria-labelledby="fan">
+      <h2 id="fan">The fan page</h2>
+      <p><a href="fan.html">Open the fan page</a></p>
+
+      <h3>Palette</h3>
+      <ul class="palette">
+        <li><span class="swatch robot-blue"></span>Robot Blue, <code>#1e2a9e</code>: background and gradient start</li>
+        <li><span class="swatch laser-purple"></span>Laser Purple, <code>#5a1a9a</code>: gradient end</li>
+        <li><span class="swatch bolt-yellow"></span>Bolt Yellow, <code>#ffe14d</code>: headings, links, and the badge</li>
+        <li><span class="swatch chrome-white"></span>Chrome White, <code>#ffffff</code>: body text</li>
+      </ul>
+
+      <h3>Fonts</h3>
+      <ul>
+        <li>Headings: Bungee, weight 400 (fallback: system-ui, sans-serif)</li>
+        <li>Body text: Nunito, weights 400 and 800 for the badge and current nav link (fallback: system-ui, sans-serif)</li>
+      </ul>
+
+      <h3>Why these choices</h3>
+      <p>Saturday-morning cartoons were bright and loud, so the page is dark robot blue fading into purple, like the show's space background, with lightning-bolt yellow for the headings and links. Body text is white, because yellow paragraphs on blue would be tiring to read for long.</p>
+      <p>Bungee looks like the blocky letters on a toy box or a robot's chest plate, so it's only for headings. Nunito is round and friendly for the paragraphs, and it stays readable on a phone, where most fans will see it.</p>
+
+      <h3>Contrast</h3>
+      <table>
+        <caption>Fan page: every text and background pair (the gradient is checked at both ends)</caption>
+        <thead>
+          <tr>
+            <th scope="col">Text on background</th>
+            <th scope="col">Used for</th>
+            <th scope="col">Ratio and result</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Chrome White on Robot Blue</td><td>Body text, top of the gradient</td><td>11.17:1, passes AA for body text</td></tr>
+          <tr><td>Chrome White on Laser Purple</td><td>Body text, bottom of the gradient</td><td>10.25:1, passes AA for body text</td></tr>
+          <tr><td>Bolt Yellow on Robot Blue</td><td>Headings, links, top of the gradient</td><td>8.58:1, passes AA for body text</td></tr>
+          <tr><td>Bolt Yellow on Laser Purple</td><td>Headings, links, bottom of the gradient</td><td>7.87:1, passes AA for body text</td></tr>
+          <tr><td>Robot Blue on Bolt Yellow</td><td>The "Saturdays at 8 am" badge</td><td>8.58:1, passes AA for body text</td></tr>
+        </tbody>
+      </table>
+    </section>
+  </main>
+
+  <footer>
+    <p><a href="../../">Back to my DIGHT 250 hub</a></p>
+  </footer>
+</body>
+</html>

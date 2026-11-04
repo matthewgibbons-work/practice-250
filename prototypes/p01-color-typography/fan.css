@@ -1,0 +1,92 @@
+/* Fan page palette: loud Saturday-morning robot colors */
+:root {
+  --blue: #1e2a9e;   /* Robot Blue: background, gradient start */
+  --purple: #5a1a9a; /* Laser Purple: gradient end */
+  --yellow: #ffe14d; /* Bolt Yellow: headings, links, badges */
+  --white: #ffffff;  /* Chrome White: body text */
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: "Nunito", system-ui, sans-serif;
+  font-size: 1.125rem;
+  line-height: 1.6;
+  color: var(--white);
+  /* The plain color shows if the gradient can't */
+  background-color: var(--blue);
+  background-image: linear-gradient(160deg, var(--blue), var(--purple));
+}
+
+header,
+main,
+footer {
+  max-width: 65ch;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+h1,
+h2,
+h3 {
+  font-family: "Bungee", system-ui, sans-serif;
+  /* Bungee only comes in one weight */
+  font-weight: 400;
+  line-height: 1.15;
+  color: var(--yellow);
+}
+
+h1 {
+  font-size: 2.75rem;
+  margin: 1rem 0 0.5rem;
+}
+
+h2 {
+  font-size: 1.75rem;
+  margin-top: 2.5rem;
+}
+
+h3 {
+  font-size: 1.25rem;
+  margin: 1.5rem 0 0.25rem;
+}
+
+.badge {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  border-radius: 999px;
+  font-weight: 800;
+  color: var(--blue);
+  background: var(--yellow);
+}
+
+.site-nav ul {
+  margin: 0;
+  padding: 1rem 0 0;
+  list-style: none;
+}
+
+.site-nav li {
+  display: inline-block;
+  margin-right: 1rem;
+}
+
+.site-nav a {
+  display: inline-block;
+  padding: 0.5rem 0;
+}
+
+.site-nav [aria-current="page"] {
+  font-weight: 800;
+  text-decoration-thickness: 0.2em;
+}
+
+a {
+  color: var(--yellow);
+  text-decoration: underline;
+}
+
+:focus-visible {
+  outline: 3px solid var(--white);
+  outline-offset: 3px;
+}

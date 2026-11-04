@@ -1,0 +1,116 @@
+/* Homepage: plain and neutral, so the two themes stand out */
+:root {
+  --bg: #ffffff;     /* page background */
+  --text: #1f1f1f;   /* body text */
+  --link: #0b57d0;   /* links */
+}
+
+body {
+  margin: 0;
+  padding: 1rem;
+  font-family: system-ui, sans-serif;
+  font-size: 1.125rem;
+  line-height: 1.6;
+  color: var(--text);
+  background: var(--bg);
+}
+
+header,
+main,
+footer {
+  max-width: 65ch;
+  margin: 0 auto;
+}
+
+h1,
+h2,
+h3 {
+  line-height: 1.2;
+}
+
+h2 {
+  margin-top: 3rem;
+  padding-top: 1rem;
+  border-top: 0.25rem solid var(--text);
+}
+
+.site-nav ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.site-nav li {
+  display: inline-block;
+  margin-right: 1rem;
+}
+
+.site-nav a {
+  display: inline-block;
+  padding: 0.5rem 0;
+}
+
+.site-nav [aria-current="page"] {
+  font-weight: bold;
+  text-decoration-thickness: 0.2em;
+}
+
+a {
+  color: var(--link);
+  text-decoration: underline;
+}
+
+/* Palette lists: a swatch, then the name, value, and role in words */
+.palette {
+  padding: 0;
+  list-style: none;
+}
+
+.palette li {
+  margin-bottom: 0.5rem;
+}
+
+.swatch {
+  display: inline-block;
+  width: 1.5rem;
+  height: 1.5rem;
+  margin-right: 0.5rem;
+  border: 2px solid var(--text);
+  vertical-align: middle;
+}
+
+/* Museum colors */
+.wall { background: #f4f1ea; }
+.ink { background: #222222; }
+.stone { background: #5c5346; }
+.teal { background: #1f5f63; }
+
+/* Fan page colors */
+.robot-blue { background: #1e2a9e; }
+.laser-purple { background: #5a1a9a; }
+.bolt-yellow { background: #ffe14d; }
+.chrome-white { background: #ffffff; }
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+caption {
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+  text-align: left;
+}
+
+th,
+td {
+  padding: 0.5rem;
+  border: 1px solid var(--text);
+  text-align: left;
+  vertical-align: top;
+}
+
+:focus-visible {
+  outline: 3px solid var(--text);
+  outline-offset: 3px;
+}
