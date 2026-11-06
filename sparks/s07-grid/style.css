@@ -1,0 +1,101 @@
+:root {
+  --bg: #f7f5f0;
+  --surface: #ffffff;
+  --text: #1f2a24;
+  --muted: #4a5a50;
+  --accent: #2f6b45;
+  --border: #c9d3cc;
+
+  font-family: system-ui, sans-serif;
+  line-height: 1.5;
+}
+
+body {
+  margin: 0;
+  padding: 1rem;
+  background: var(--bg);
+  color: var(--text);
+
+  /* The page layout: draw it in the same order the HTML reads. */
+  display: grid;
+  grid-template-columns: 1fr 16rem;
+  grid-template-areas:
+    "header header"
+    "main   aside"
+    "footer footer";
+  gap: 1.5rem;
+}
+
+.site-header { grid-area: header; }
+.site-main   { grid-area: main; }
+.site-aside  { grid-area: aside; }
+.site-footer { grid-area: footer; }
+
+h1,
+h2,
+h3 {
+  line-height: 1.2;
+}
+
+a {
+  color: var(--accent);
+}
+
+a:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* The cards: the space decides how many columns fit.
+   min(15rem, 100%) lets a card shrink below 15rem when the main column
+   itself is narrower, so a narrow window or 200% zoom can't push the
+   page sideways. */
+.cards {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(15rem, 100%), 1fr));
+  gap: 1rem;
+}
+
+.card {
+  padding: 1rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 0.5rem;
+}
+
+.card h3 {
+  margin-top: 0;
+}
+
+.card-facts {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.site-aside {
+  padding: 1rem;
+  background: var(--surface);
+  border-left: 4px solid var(--accent);
+  border-radius: 0.5rem;
+  align-self: start;
+}
+
+.site-aside h2 {
+  margin-top: 0;
+}
+
+.site-aside h3 {
+  font-size: 1rem;
+  margin-bottom: 0.25rem;
+}
+
+.site-aside p {
+  margin-top: 0;
+}
+
+.site-footer {
+  border-top: 1px solid var(--border);
+}
