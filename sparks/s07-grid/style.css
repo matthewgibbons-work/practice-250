@@ -1,18 +1,25 @@
 :root {
-  --bg: #f7f5f0;
+  /* A cool trail-map palette: pale sage paper, deep teal ink. */
+  --bg: #eef3f1;
   --surface: #ffffff;
-  --text: #1f2a24;
-  --muted: #4a5a50;
-  --accent: #2f6b45;
-  --border: #c9d3cc;
+  --text: #10282a;
+  --muted: #3d5557;
+  --accent: #0f6b6b;
+  --border: #c8d6d3;
+
+  /* The sidebar is the dark panel on this page. */
+  --panel: #12393b;
+  --panel-text: #e8f3f1;
+  --panel-soft: #a7d8cf;
 
   font-family: system-ui, sans-serif;
   line-height: 1.5;
 }
 
 body {
-  margin: 0;
-  padding: 1rem;
+  margin: 0 auto;
+  max-width: 72rem;
+  padding: 1.5rem 1rem;
   background: var(--bg);
   color: var(--text);
 
@@ -46,6 +53,38 @@ a:focus-visible {
   outline-offset: 2px;
 }
 
+/* ---------- Header: light, left-aligned, with a trail-marker rule ---------- */
+
+.site-header {
+  padding-bottom: 1.25rem;
+  border-bottom: 4px solid var(--accent);
+}
+
+.kicker {
+  margin: 0;
+  color: var(--accent);
+  font-size: 0.875rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.site-header h1 {
+  margin: 0.25rem 0 0.5rem;
+  font-size: clamp(2rem, 1.4rem + 2.5vw, 3rem);
+}
+
+.site-header p:last-child {
+  max-width: 40rem;
+  margin: 0;
+  color: var(--muted);
+  font-size: 1.125rem;
+}
+
+.site-main h2 {
+  margin-top: 0;
+}
+
 /* The cards: the space decides how many columns fit.
    min(15rem, 100%) lets a card shrink below 15rem when the main column
    itself is narrower, so a narrow window or 200% zoom can't push the
@@ -59,15 +98,31 @@ a:focus-visible {
   gap: 1rem;
 }
 
+/* Flex column so each card's link sits at the bottom. */
 .card {
-  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  padding: 1.25rem;
   background: var(--surface);
   border: 1px solid var(--border);
-  border-radius: 0.5rem;
+  border-left: 6px solid var(--accent);
+  border-radius: 0.25rem 0.75rem 0.75rem 0.25rem;
 }
 
 .card h3 {
+  margin: 0 0 0.5rem;
+  font-size: 1.25rem;
+}
+
+.card p {
   margin-top: 0;
+}
+
+.card a {
+  align-self: start;
+  margin-top: auto;
+  padding-block: 0.25rem;
+  font-weight: 600;
 }
 
 .card-facts {
@@ -75,27 +130,61 @@ a:focus-visible {
   font-size: 0.9rem;
 }
 
-.site-aside {
-  padding: 1rem;
-  background: var(--surface);
-  border-left: 4px solid var(--accent);
-  border-radius: 0.5rem;
+/* Difficulty labels, colored like trail ratings. The word is always
+   there too, so color is never the only signal. */
+.level {
   align-self: start;
+  padding: 0.125rem 0.625rem;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  border-radius: 1rem;
+}
+
+.level-easy     { background: #d6efe0; color: #14532d; }
+.level-moderate { background: #fdecc8; color: #713f12; }
+.level-hard     { background: #fde0dc; color: #8a1c12; }
+
+/* ---------- Sidebar: the dark "Before you go" panel ---------- */
+
+.site-aside {
+  align-self: start;
+  padding: 1.25rem;
+  background: var(--panel);
+  color: var(--panel-text);
+  border-radius: 0.75rem;
 }
 
 .site-aside h2 {
   margin-top: 0;
+  font-size: 1.25rem;
 }
 
 .site-aside h3 {
-  font-size: 1rem;
   margin-bottom: 0.25rem;
+  color: var(--panel-soft);
+  font-size: 0.875rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
 }
 
 .site-aside p {
   margin-top: 0;
 }
 
+.site-aside ul {
+  margin: 0;
+  padding-left: 1.25rem;
+}
+
+/* ---------- Footer ---------- */
+
 .site-footer {
+  padding-top: 1rem;
   border-top: 1px solid var(--border);
+}
+
+/* Padding makes the hub link at least 24px tall. */
+.site-footer a {
+  display: inline-block;
+  padding-block: 0.25rem;
 }

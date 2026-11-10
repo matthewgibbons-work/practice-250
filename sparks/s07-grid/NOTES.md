@@ -19,6 +19,8 @@ Changed: the cards first used `minmax(15rem, 1fr)`. It looked done on my laptop,
 
 Rejected: the agent also tried `minmax(0, 1fr)` for the main column. It stopped the sideways scroll at a phone width, but the main column shrank to nothing and the cards spilled over the sidebar, which is worse. I kept `1fr` because S08 is when we fix the phone layout.
 
+Changed: the agent's first look was plain (white cards, a light gray sidebar), so P3 and this page would have looked the same apart from color. I asked for a trail-map feel: a centered page, a dark teal "Before you go" panel, and a difficulty label on each card. I kept the word on every label (Hard, Moderate) instead of only a color, so color is never the only way to tell them apart, and took the difficulty out of the facts line so it isn't said twice.
+
 ## Dig deeper
 `min()`: https://developer.mozilla.org/en-US/docs/Web/CSS/min
 It picks the smallest of the values you give it, and it can mix units, so `min(15rem, 100%)` compares a fixed size with the size of the container and uses whichever is smaller. That's why it can go inside `minmax()`: the minimum still says "about 15rem", but it's never wider than the column.
