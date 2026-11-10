@@ -2,32 +2,49 @@
   --bg: #fbf7ef;
   --surface: #ffffff;
   --text: #2a1f17;
+  --muted: #5c4a3d;
   --accent: #9a3412;
   --border: #e0d4c3;
+
+  /* The awning: the header band and its light text. */
+  --awning: #7c2d12;
+  --awning-text: #fff7ed;
+  --awning-soft: #fed7aa;
+
+  /* The sidebar: a sage panel, like the market's info tent. */
+  --sage: #eef4e8;
+  --sage-dark: #3f5a2e;
+
+  /* The featured tile. */
+  --feature: #fef3c7;
 
   font-family: system-ui, sans-serif;
   line-height: 1.5;
 }
 
+/* The page layout, drawn in the same order the HTML reads:
+   the header band across the top, the sidebar on the left (it comes
+   before main in the HTML), the gallery on the right, the footer across
+   the bottom. The header and footer run edge to edge, so the body has
+   no padding; the two middle areas get their own. */
 body {
   margin: 0;
-  padding: 1rem;
   background: var(--bg);
   color: var(--text);
 
-  /* The page layout, drawn in the same order the HTML reads. */
   display: grid;
-  grid-template-columns: 1fr 16rem;
+  grid-template-columns: 14rem 1fr;
   grid-template-areas:
     "header header"
-    "main   aside"
+    "aside  main"
     "footer footer";
-  gap: 1.5rem;
+  column-gap: 2rem;
+  row-gap: 2rem;
 }
 
 .site-header { grid-area: header; }
-.site-main   { grid-area: main; }
 .site-aside  { grid-area: aside; }
+.site-main   { grid-area: main; }
 .site-footer { grid-area: footer; }
 
 h1,
@@ -45,20 +62,44 @@ a:focus-visible {
   outline-offset: 2px;
 }
 
-/* Header: title and nav side by side, wrapping if there isn't room. */
+/* ---------- Header: a full-width awning band ---------- */
+
 .site-header {
+  padding: 1rem 1.5rem 2.5rem;
+  background: var(--awning);
+  color: var(--awning-text);
+  /* Awning stripes along the bottom edge. Decoration only. */
+  border-bottom: 0.75rem solid transparent;
+  border-image: repeating-linear-gradient(
+      90deg,
+      var(--awning-soft) 0 2rem,
+      var(--awning-text) 2rem 4rem
+    ) 1;
+}
+
+.site-header a {
+  color: var(--awning-text);
+}
+
+.site-header a:focus-visible {
+  outline-color: var(--awning-text);
+}
+
+/* Title and nav side by side, wrapping if there isn't room. */
+.topbar {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
   gap: 0.5rem 1rem;
-  border-bottom: 1px solid var(--border);
 }
 
 .site-title {
   margin: 0;
   font-weight: 700;
-  font-size: 1.25rem;
+  font-size: 1.125rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
 }
 
 .nav-list {
@@ -74,57 +115,45 @@ a:focus-visible {
 .nav-list a {
   display: block;
   padding: 0.5rem 0.75rem;
+  border-radius: 2rem;
+  text-decoration: none;
+}
+
+.nav-list a:hover {
+  background: rgb(255 247 237 / 0.15);
 }
 
 .welcome {
-  max-width: 40rem;
+  max-width: 44rem;
+  margin-top: 2rem;
 }
 
-/* The gallery: the space decides how many columns fit.
-   min(13rem, 100%) lets a tile shrink when main is narrower than 13rem. */
-.tiles {
-  list-style: none;
+.welcome h1 {
+  margin: 0 0 0.75rem;
+  font-size: clamp(1.75rem, 1.2rem + 2.5vw, 2.75rem);
+}
+
+.welcome p {
   margin: 0;
-  padding: 0;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(13rem, 100%), 1fr));
-  gap: 1rem;
+  color: var(--awning-soft);
+  font-size: 1.125rem;
 }
 
-/* No height: a tile grows to fit its text. Flex column so links line up at the bottom. */
-.tile {
-  display: flex;
-  flex-direction: column;
-  padding: 1rem;
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 0.5rem;
-}
-
-.tile h3 {
-  margin-top: 0;
-}
-
-.tile p {
-  margin-top: 0;
-}
-
-.tile a {
-  align-self: start;
-  margin-top: auto;
-  padding-block: 0.25rem;
-}
+/* ---------- Sidebar: the info tent, on the left ---------- */
 
 .site-aside {
   align-self: start;
-  padding: 1rem;
-  background: var(--surface);
-  border-left: 4px solid var(--accent);
+  margin-inline-start: 1.5rem;
+  padding: 1.25rem;
+  background: var(--sage);
+  border-top: 6px solid var(--sage-dark);
   border-radius: 0.5rem;
 }
 
 .site-aside h2 {
   margin-top: 0;
+  font-size: 1.25rem;
+  color: var(--sage-dark);
 }
 
 .site-aside h3 {
@@ -136,13 +165,76 @@ a:focus-visible {
   margin-top: 0;
 }
 
+/* Stall numbers as small round markers. */
 .stall-list {
-  margin: 0 0 0.5rem;
-  padding-left: 1.25rem;
+  list-style: none;
+  margin: 0 0 0.75rem;
+  padding: 0;
+  display: grid;
+  gap: 0.375rem;
 }
 
-.site-footer {
-  border-top: 1px solid var(--border);
+.stall-number {
+  display: inline-block;
+  min-width: 1.75rem;
+  margin-inline-end: 0.5rem;
+  padding: 0.125rem 0.25rem;
+  background: var(--sage-dark);
+  color: #ffffff;
+  font-size: 0.875rem;
+  font-weight: 700;
+  text-align: center;
+  border-radius: 1rem;
+}
+
+/* ---------- Main: the gallery ---------- */
+
+.site-main {
+  padding-inline-end: 1.5rem;
+}
+
+.site-main h2 {
+  margin-top: 0;
+  font-size: 1.5rem;
+}
+
+/* The gallery: the space decides how many columns fit.
+   min(13rem, 100%) lets a tile shrink when main is narrower than 13rem. */
+.tiles {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(13rem, 100%), 1fr));
+  gap: 1.25rem;
+}
+
+/* No height: a tile grows to fit its text. Flex column so links line up at the bottom. */
+.tile {
+  display: flex;
+  flex-direction: column;
+  padding: 1.25rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-top: 4px solid var(--accent);
+  border-radius: 0.5rem;
+  box-shadow: 0 1px 3px rgb(42 31 23 / 0.08);
+}
+
+.tile h3 {
+  margin-top: 0;
+}
+
+.tile p {
+  margin-top: 0;
+  color: var(--muted);
+}
+
+.tile a {
+  align-self: start;
+  margin-top: auto;
+  padding-block: 0.25rem;
+  font-weight: 600;
 }
 
 /* The featured tile: first in the HTML, and 1 / -1 stretches it from the
@@ -150,25 +242,49 @@ a:focus-visible {
    At one column that's just one column, so nothing scrolls sideways. */
 .tile-featured {
   grid-column: 1 / -1;
-  background: #fff3e6;
+  padding: 1.5rem;
+  background: var(--feature);
   border: 3px solid var(--accent);
 }
 
 .tile-featured h3 {
-  font-size: 1.5rem;
+  font-size: 1.75rem;
 }
 
 .tile-featured p {
   max-width: 40rem;
+  color: var(--text);
+  font-size: 1.0625rem;
 }
 
-.badge {
+/* .tile .badge, so the tile's paragraph color doesn't win. */
+.tile .badge {
   align-self: start;
   margin: 0 0 0.5rem;
-  padding: 0.125rem 0.5rem;
+  padding: 0.125rem 0.625rem;
   background: var(--accent);
   color: #ffffff;
   font-size: 0.875rem;
   font-weight: 700;
   border-radius: 1rem;
+}
+
+/* ---------- Footer: dark, edge to edge ---------- */
+
+.site-footer {
+  padding: 1.5rem;
+  background: var(--text);
+  color: var(--awning-text);
+}
+
+.site-footer p {
+  margin: 0;
+}
+
+.site-footer a {
+  color: #fdba74;
+}
+
+.site-footer a:focus-visible {
+  outline-color: #fdba74;
 }
