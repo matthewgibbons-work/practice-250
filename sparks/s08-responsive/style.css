@@ -1,0 +1,223 @@
+:root {
+  /* A fair-poster palette: warm paper, deep plum ink, a tomato accent. */
+  --bg: #fbf6ee;
+  --surface: #ffffff;
+  --text: #2a1638;
+  --muted: #5b4a66;
+  --accent: #b83a14;
+  --plum: #3b1d52;
+  --on-plum: #fdf3e7;
+  --peach: #fde7d4;
+  --border: #e3d6c6;
+
+  font-family: system-ui, sans-serif;
+  line-height: 1.5;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+}
+
+/* Mobile first: the base is one column for every screen.
+   No grid here; the boxes stack in HTML order on their own. */
+.page {
+  max-width: 70rem;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+h1,
+h2 {
+  font-family: "Bricolage Grotesque", system-ui, sans-serif;
+  line-height: 1.1;
+}
+
+a {
+  color: var(--accent);
+}
+
+a:focus-visible,
+.table-scroll:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 3px;
+}
+
+/* ---------- Header: a plum poster band ---------- */
+
+.site-header {
+  padding: 1.5rem 1.25rem;
+  background: var(--plum);
+  color: var(--on-plum);
+  border-radius: 1rem;
+}
+
+.kicker {
+  margin: 0;
+  font-size: 0.875rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+.site-header h1 {
+  margin: 0.5rem 0;
+  font-size: clamp(2.25rem, 1.5rem + 3vw, 3.75rem);
+  font-weight: 800;
+}
+
+.lede {
+  max-width: 38rem;
+  margin: 0;
+  font-size: 1.125rem;
+}
+
+/* ---------- Main ---------- */
+
+.site-main h2 {
+  margin: 2rem 0 0.5rem;
+  font-size: 1.75rem;
+}
+
+/* The table scrolls inside this box, so it can't push the page sideways. */
+.table-scroll {
+  overflow-x: auto;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 0.75rem;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+caption {
+  padding: 0.75rem 1rem;
+  text-align: left;
+  font-weight: 700;
+}
+
+th,
+td {
+  padding: 0.625rem 1rem;
+  text-align: left;
+  /* Keep "8–9:30 p.m." on one line; the box scrolls instead. */
+  white-space: nowrap;
+}
+
+thead th {
+  background: var(--plum);
+  color: var(--on-plum);
+  font-size: 0.875rem;
+}
+
+tbody tr:nth-child(even) {
+  background: var(--peach);
+}
+
+/* The new clubs: as many cards across as fit.
+   min(14rem, 100%) lets a card shrink when the column is narrower than 14rem. */
+.clubs {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(14rem, 100%), 1fr));
+  gap: 1rem;
+}
+
+.clubs li {
+  padding: 1rem 1.25rem;
+  background: var(--surface);
+  border-top: 5px solid var(--accent);
+  border-radius: 0.5rem;
+}
+
+.clubs h3 {
+  margin: 0 0 0.25rem;
+}
+
+.clubs p {
+  margin: 0;
+  color: var(--muted);
+}
+
+/* ---------- Sidebar: a peach "ticket" with a dashed edge ---------- */
+
+.site-aside {
+  margin-top: 2rem;
+  padding: 1.25rem;
+  background: var(--peach);
+  border: 2px dashed var(--accent);
+  border-radius: 1rem;
+}
+
+.site-aside h2 {
+  margin-top: 0;
+  font-size: 1.5rem;
+}
+
+.steps {
+  padding-left: 1.5rem;
+}
+
+.steps li + li {
+  margin-top: 0.5rem;
+}
+
+.steps li::marker {
+  color: var(--accent);
+  font-weight: 800;
+}
+
+.site-aside h3 {
+  margin: 1.25rem 0 0.25rem;
+  font-size: 1rem;
+}
+
+.site-aside p {
+  margin: 0;
+}
+
+/* ---------- Footer ---------- */
+
+.site-footer {
+  margin-top: 2rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border);
+}
+
+/* Padding makes the hub link at least 24px tall. */
+.site-footer a {
+  display: inline-block;
+  padding-block: 0.25rem;
+}
+
+/* ---------- Wider screens: bring the sidebar back ----------
+   50em is where the one-column text starts to read too wide, and where
+   there's room for a 16rem sidebar beside a main column of about 30rem.
+   minmax(0, 1fr), not 1fr: a plain 1fr column won't get narrower than the
+   table inside it, so just above 50em the page would scroll sideways. */
+@media (min-width: 50em) {
+  .page {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 16rem;
+    grid-template-areas:
+      "header header"
+      "main   aside"
+      "footer footer";
+    column-gap: 2rem;
+  }
+
+  .site-header { grid-area: header; }
+  .site-main   { grid-area: main; }
+  .site-aside  { grid-area: aside; }
+  .site-footer { grid-area: footer; }
+
+  /* Line the sidebar up with the first h2 in main. */
+  .site-aside {
+    align-self: start;
+    margin-top: 2rem;
+  }
+}
