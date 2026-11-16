@@ -1,0 +1,76 @@
+/* Quiet "paper" palette. Ink, muted, and link colors are all chosen to pass 4.5:1 on --paper */
+:root {
+  --paper: #fbf8f2;
+  --ink: #222222;
+  --muted: #555555;
+  --link: #1f4e79;
+  --rule: #d8d2c4;
+}
+
+body {
+  margin: 0;
+  padding: 0 1rem;
+  background-color: var(--paper);
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.125rem;
+  line-height: 1.6;
+  /* Long URLs wrap instead of making the page scroll sideways at 320px */
+  overflow-wrap: break-word;
+}
+
+/* About 65 characters per line, like a printed page */
+header,
+main,
+footer {
+  max-width: 65ch;
+  margin: 0 auto;
+}
+
+header {
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--rule);
+}
+
+footer {
+  margin-top: 3rem;
+  padding: 1rem 0;
+  border-top: 1px solid var(--rule);
+  color: var(--muted);
+}
+
+.site-name {
+  margin: 0;
+  color: var(--muted);
+}
+
+h1,
+h2 {
+  line-height: 1.2;
+}
+
+li + li {
+  margin-top: 0.5rem;
+}
+
+a {
+  color: var(--link);
+}
+
+a:focus-visible {
+  outline: 3px solid var(--link);
+  outline-offset: 2px;
+}
+
+/* Hidden off-screen until a keyboard user tabs to it */
+.skip-link {
+  position: absolute;
+  left: -100vw;
+}
+
+.skip-link:focus {
+  left: 1rem;
+  top: 1rem;
+  padding: 0.5rem 1rem;
+  background-color: var(--paper);
+}
