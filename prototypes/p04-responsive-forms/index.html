@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sign up · Board Game Club</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap">
+      <p class="kicker">Campus Club Fair</p>
+      <h1>Board Game Club</h1>
+      <p class="lede">Leave your details and we'll save you a seat at the table.</p>
+    </div>
+  </header>
+
+  <div class="wrap layout">
+    <aside class="club-info" aria-labelledby="club-nights">
+      <h2 id="club-nights">Club nights</h2>
+      <dl>
+        <dt>When</dt>
+        <dd>Wednesdays, 7–10 p.m.</dd>
+        <dt>Where</dt>
+        <dd>Student Center, room 3220</dd>
+        <dt>Games</dt>
+        <dd>All provided. No experience needed.</dd>
+        <dt>Reminder</dt>
+        <dd>Leave a number and we'll text you the day before.</dd>
+      </dl>
+    </aside>
+
+    <main class="card">
+      <h2>Sign up</h2>
+      <form action="thanks.html" method="get">
+        <div class="field">
+          <label for="name">Name (required)</label>
+          <input id="name" name="name" type="text" required autocomplete="name" autocapitalize="words" enterkeyhint="next">
+          <p class="error">Error: please enter your name.</p>
+        </div>
+
+        <div class="field">
+          <label for="email">Email (required)</label>
+          <input id="email" name="email" type="email" required autocomplete="email" spellcheck="false" enterkeyhint="next">
+          <p class="error">Error: please enter an email like name@byu.edu.</p>
+        </div>
+
+        <fieldset>
+          <legend>Year in school (required)</legend>
+          <div class="choice">
+            <input id="year-1" name="year" type="radio" value="first" required>
+            <label for="year-1">First year</label>
+          </div>
+          <div class="choice">
+            <input id="year-2" name="year" type="radio" value="second" required>
+            <label for="year-2">Second year</label>
+          </div>
+          <div class="choice">
+            <input id="year-3" name="year" type="radio" value="third" required>
+            <label for="year-3">Third year</label>
+          </div>
+          <div class="choice">
+            <input id="year-4" name="year" type="radio" value="fourth-plus" required>
+            <label for="year-4">Fourth year or more</label>
+          </div>
+          <div class="choice">
+            <input id="year-grad" name="year" type="radio" value="grad" required>
+            <label for="year-grad">Grad student</label>
+          </div>
+          <p class="error">Error: please choose your year in school.</p>
+        </fieldset>
+
+        <fieldset>
+          <legend>Which nights could you come?</legend>
+          <div class="choice">
+            <input id="night-mon" name="nights" type="checkbox" value="monday">
+            <label for="night-mon">Monday</label>
+          </div>
+          <div class="choice">
+            <input id="night-wed" name="nights" type="checkbox" value="wednesday">
+            <label for="night-wed">Wednesday</label>
+          </div>
+          <div class="choice">
+            <input id="night-fri" name="nights" type="checkbox" value="friday">
+            <label for="night-fri">Friday</label>
+          </div>
+        </fieldset>
+
+        <div class="field">
+          <label for="phone">Phone number for a text reminder (optional)</label>
+          <input id="phone" name="phone" type="tel" autocomplete="tel" enterkeyhint="next">
+        </div>
+
+        <div class="field">
+          <label for="game">Favourite game, or one you want to learn (required)</label>
+          <textarea id="game" name="game" rows="4" required enterkeyhint="send"></textarea>
+          <p class="error">Error: please tell us a game.</p>
+        </div>
+
+        <button type="submit">Sign me up</button>
+      </form>
+    </main>
+  </div>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p><a href="../../index.html">Back to my DIGHT 250 hub</a></p>
+    </div>
+  </footer>
+</body>
+</html>

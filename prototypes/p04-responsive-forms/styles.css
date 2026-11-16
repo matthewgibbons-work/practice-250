@@ -1,0 +1,255 @@
+:root {
+  /* A card-table palette: green felt, a gold rim, warm cream. */
+  --bg: #fbf5e6;
+  --surface: #fffdf7;
+  --text: #1d2b22;
+  --muted: #4a5a4f;
+  --felt: #1f5133;
+  --felt-dark: #163d26;
+  --on-felt: #fbf5e6;
+  --gold: #f2c14e;
+  --border: #5f6b62;
+  --error: #a3201a;
+
+  font-family: system-ui, sans-serif;
+  line-height: 1.5;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+}
+
+/* Keeps content centered on wide screens; the header color still runs edge to edge. */
+.wrap {
+  max-width: 60rem;
+  margin-inline: auto;
+  padding-inline: 1rem;
+}
+
+a {
+  color: var(--felt);
+}
+
+/* One visible focus style for every link, field, and button. */
+:focus-visible {
+  outline: 3px solid var(--felt);
+  outline-offset: 2px;
+}
+
+/* ---------- Header: a full-width felt band with a gold rim ---------- */
+
+.site-header {
+  padding-block: 1.5rem;
+  background: var(--felt);
+  color: var(--on-felt);
+  border-bottom: 0.375rem solid var(--gold);
+}
+
+.kicker {
+  margin: 0;
+  color: var(--gold);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.875rem;
+}
+
+.site-header h1 {
+  margin: 0.25rem 0;
+  font-size: 2.25rem;
+  line-height: 1.1;
+}
+
+.lede {
+  margin: 0;
+}
+
+/* ---------- Layout: one column on phones ---------- */
+
+.layout {
+  display: grid;
+  gap: 1.5rem;
+  padding-block: 1.5rem;
+}
+
+/* ---------- Club info panel ---------- */
+
+.club-info {
+  padding: 1.25rem;
+  background: var(--felt);
+  color: var(--on-felt);
+  border-radius: 0.25rem;
+}
+
+.club-info h2 {
+  margin-top: 0;
+  color: var(--gold);
+}
+
+.club-info dl {
+  margin: 0;
+}
+
+.club-info dt {
+  font-weight: 700;
+}
+
+.club-info dd {
+  margin: 0 0 0.75rem;
+}
+
+/* ---------- The form card ---------- */
+
+.card {
+  padding: 1.25rem;
+  background: var(--surface);
+  border: 0.25rem solid var(--felt);
+  border-radius: 0.25rem;
+}
+
+.card h2 {
+  margin-top: 0;
+}
+
+form {
+  display: grid;
+  gap: 1.25rem;
+}
+
+label,
+legend {
+  font-weight: 700;
+}
+
+.field label {
+  display: block;
+  margin-bottom: 0.25rem;
+}
+
+/* Form controls don't inherit the page font on their own.
+   1rem (16px) text also stops iPhones from zooming in on focus. */
+input,
+textarea,
+button {
+  font: inherit;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+textarea {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 0.625rem 0.75rem;
+  background: var(--surface);
+  color: var(--text);
+  border: 2px solid var(--border);
+  border-radius: 0.25rem;
+}
+
+textarea {
+  resize: vertical;
+}
+
+fieldset {
+  margin: 0;
+  padding: 0.75rem 1rem;
+  border: 2px solid var(--border);
+  border-radius: 0.25rem;
+}
+
+/* ---------- Radio and checkbox rows: big enough to tap ---------- */
+
+.choice {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.choice input {
+  width: 1.25rem;
+  height: 1.25rem;
+  margin: 0;
+  accent-color: var(--felt);
+}
+
+/* The label is the tap target, so make it at least 44px tall. */
+.choice label {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  min-height: 2.75rem;
+  font-weight: 400;
+}
+
+/* ---------- Problems: shown in words, not only color ---------- */
+
+.error {
+  display: none;
+  margin: 0.25rem 0 0;
+  color: var(--error);
+  font-weight: 700;
+}
+
+/* :user-invalid waits until the person has tried the field (or pressed submit). */
+:user-invalid {
+  border-color: var(--error);
+}
+
+:user-invalid + .error,
+fieldset:has(:user-invalid) .error {
+  display: block;
+}
+
+/* ---------- Submit button ---------- */
+
+button {
+  min-height: 2.75rem;
+  padding: 0.625rem 1.5rem;
+  background: var(--felt);
+  color: var(--on-felt);
+  font-weight: 700;
+  border: 0;
+  border-radius: 0.25rem;
+  cursor: pointer;
+}
+
+button:hover {
+  background: var(--felt-dark);
+}
+
+/* ---------- Thanks page: one card, no panel ---------- */
+
+.thanks {
+  margin-block: 1.5rem;
+}
+
+/* ---------- Footer ---------- */
+
+.site-footer {
+  border-top: 1px solid var(--border);
+}
+
+/* Padding makes the link at least 24px tall. */
+.site-footer a {
+  display: inline-block;
+  padding-block: 0.25rem;
+}
+
+/* ---------- Wider screens: panel on the left, form beside it ----------
+   50em is about a 15em panel + a 30em form + gap and padding.
+   minmax(0, 1fr) lets the form column shrink instead of pushing the page sideways. */
+@media (min-width: 50em) {
+  .layout {
+    grid-template-columns: 17rem minmax(0, 1fr);
+    gap: 2rem;
+    align-items: start;
+  }
+
+  /* A full-width button looks odd on a wide form. */
+  button {
+    justify-self: start;
+  }
+}
