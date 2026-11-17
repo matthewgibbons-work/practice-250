@@ -1,0 +1,132 @@
+/* S09 · RSVP form. One column; the form is the whole page. */
+
+:root {
+  --ink: #1f1a2e;
+  --paper: #fffaf0;
+  --accent: #6b2fa3;   /* purple: 7.9:1 on --paper */
+  --muted: #4d4660;    /* hint text: 8.6:1 on --paper */
+  --error: #a3161b;    /* error red: 7.5:1 on --paper */
+  --focus: #d35400;   /* focus ring: 4.0:1 on --paper (3:1 needed) */
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font: 1.125rem/1.5 system-ui, sans-serif;
+  color: var(--ink);
+  background: var(--paper);
+}
+
+.skip-link {
+  position: absolute;
+  left: 1rem;
+  top: -3rem;
+  padding: 0.5rem 1rem;
+  background: var(--ink);
+  color: var(--paper);
+}
+.skip-link:focus { top: 1rem; }
+
+.site-header, main, footer {
+  max-width: 36rem;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.kicker {
+  margin: 0;
+  font-weight: 700;
+  color: var(--accent);
+}
+
+a { color: var(--accent); }
+
+:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 2px;
+}
+
+h1 { margin: 0.5rem 0; line-height: 1.15; }
+
+.required-note { color: var(--muted); }
+
+/* ---------- Fields ---------- */
+.field { margin-bottom: 1.25rem; }
+
+label { display: block; font-weight: 600; }
+
+input[type="text"],
+input[type="email"] {
+  width: 100%;
+  padding: 0.6rem 0.75rem;
+  border: 2px solid var(--muted);
+  border-radius: 0.4rem;
+  font: inherit;
+  background: #fff;
+}
+
+.hint {
+  margin: 0.35rem 0 0;
+  font-size: 0.95rem;
+  color: var(--muted);
+}
+
+/* ---------- Radio buttons and checkboxes ---------- */
+fieldset {
+  margin: 0 0 1.25rem;
+  padding: 0.75rem 1rem;
+  border: 2px solid var(--muted);
+  border-radius: 0.4rem;
+}
+
+legend {
+  padding: 0 0.25rem;
+  font-weight: 600;
+}
+
+.choice {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  padding: 0.25rem 0;
+}
+.choice label { font-weight: 400; }
+.choice input { width: 1.25rem; height: 1.25rem; margin: 0; accent-color: var(--accent); }
+
+button {
+  padding: 0.75rem 1.5rem;
+  border: 0;
+  border-radius: 999px;
+  background: var(--accent);
+  color: #fff;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+/* ---------- Errors ----------
+   :user-invalid waits until someone has changed the field or tried to send,
+   so nothing is red on a fresh page. The words change too, not only the colour. */
+.hint-error { display: none; }
+
+input:user-invalid {
+  border-color: var(--error);
+}
+
+input:user-invalid + .hint .hint-ok { display: none; }
+input:user-invalid + .hint .hint-error {
+  display: inline;
+  color: var(--error);
+  font-weight: 600;
+}
+
+fieldset:has(:user-invalid) {
+  border-color: var(--error);
+}
+fieldset:has(:user-invalid) legend::after {
+  content: " Choose one.";
+  color: var(--error);
+}
+
+footer { color: var(--muted); font-size: 0.95rem; }

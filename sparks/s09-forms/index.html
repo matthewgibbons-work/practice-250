@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>RSVP · Saturday Morning Archive watch party · S09</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <header class="site-header">
+    <p class="kicker">Saturday Morning Archive · watch party</p>
+    <nav aria-label="Site">
+      <a href="../../index.html">Back to all work</a>
+    </nav>
+  </header>
+
+  <main id="main">
+    <h1>Save me a seat</h1>
+    <p class="lede">Cartoons, cereal, and pajamas encouraged. We meet 9–11 a.m. in the JFSB basement lounge. Tell us which morning you're coming so we have enough bowls.</p>
+
+    <form action="thanks.html" method="get">
+      <p class="required-note">Every field is required unless it says "optional."</p>
+
+      <div class="field">
+        <label for="name">Your name</label>
+        <input id="name" name="name" type="text" required autocomplete="name">
+      </div>
+
+      <div class="field">
+        <label for="email">Email</label>
+        <input id="email" name="email" type="email" required autocomplete="email" spellcheck="false" aria-describedby="email-hint">
+        <p class="hint" id="email-hint">
+          <span class="hint-ok">We'll send the room's door code the night before.</span>
+          <span class="hint-error">Check this: an email needs an @ and a domain, like jess@byu.edu.</span>
+        </p>
+      </div>
+
+      <fieldset>
+        <legend>Which morning are you coming?</legend>
+        <div class="choice">
+          <input id="morning-nov28" name="morning" type="radio" value="2026-11-28" required>
+          <label for="morning-nov28">Saturday, Nov 28</label>
+        </div>
+        <div class="choice">
+          <input id="morning-dec05" name="morning" type="radio" value="2026-12-05">
+          <label for="morning-dec05">Saturday, Dec 5</label>
+        </div>
+        <div class="choice">
+          <input id="morning-dec12" name="morning" type="radio" value="2026-12-12">
+          <label for="morning-dec12">Saturday, Dec 12</label>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>Which shows would you vote for? (optional, pick any)</legend>
+        <div class="choice">
+          <input id="show-scooby" name="shows" type="checkbox" value="scooby-doo">
+          <label for="show-scooby">Scooby-Doo, Where Are You!</label>
+        </div>
+        <div class="choice">
+          <input id="show-smurfs" name="shows" type="checkbox" value="smurfs">
+          <label for="show-smurfs">The Smurfs</label>
+        </div>
+        <div class="choice">
+          <input id="show-schoolhouse" name="shows" type="checkbox" value="schoolhouse-rock">
+          <label for="show-schoolhouse">Schoolhouse Rock!</label>
+        </div>
+        <div class="choice">
+          <input id="show-fat-albert" name="shows" type="checkbox" value="fat-albert">
+          <label for="show-fat-albert">Fat Albert and the Cosby Kids</label>
+        </div>
+      </fieldset>
+
+      <button type="submit">Send my RSVP</button>
+    </form>
+  </main>
+
+  <footer>
+    <p>DIGHT 250 · S09 · A form that asks</p>
+  </footer>
+</body>
+</html>
