@@ -1,0 +1,110 @@
+/* S10 · Clip of the week. One column; cards wrap below the clip. */
+
+:root {
+  --ink: #1f1a2e;
+  --paper: #fffaf0;
+  --accent: #8a2a12;   /* brick: 8.1:1 on --paper */
+  --badge-bg: #1f1a2e; /* badge: --paper text on --ink, 16:1 */
+  --line: #6d6478;     /* card border: 5.4:1 on --paper (3:1 needed) */
+  --focus: #d35400;    /* focus ring: 4.0:1 on --paper (3:1 needed) */
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font: 1.125rem/1.5 system-ui, sans-serif;
+  color: var(--ink);
+  background: var(--paper);
+}
+
+.skip-link {
+  position: absolute;
+  left: 1rem;
+  top: -3rem;
+  padding: 0.5rem 1rem;
+  background: var(--ink);
+  color: var(--paper);
+}
+.skip-link:focus { top: 1rem; }
+
+.site-header, main, footer {
+  max-width: 44rem;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.kicker {
+  margin: 0;
+  font-weight: 700;
+  color: var(--accent);
+}
+
+a { color: var(--accent); }
+:focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; }
+
+figure { margin: 1.5rem 0; }
+img, video {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+figcaption { margin-top: 0.5rem; font-size: 1rem; }
+
+/* The cards. Each one is the containing block for its own badge. */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
+  gap: 1rem;
+  padding: 0;
+  list-style: none;
+}
+
+.card {
+  position: relative; /* without this, the badge is positioned against the page */
+  padding: 1rem;
+  border: 2px solid var(--line);
+  border-radius: 0.5rem;
+}
+
+.card h3 {
+  margin: 0 0 0.5rem;
+  padding-right: 3.5rem; /* leaves room for the badge, so it never covers the title */
+}
+
+.badge {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  margin: 0;
+  padding: 0.125rem 0.5rem;
+  border-radius: 0.25rem;
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--paper);
+  background: var(--badge-bg);
+}
+
+.icon-link {
+  display: inline-block;
+  min-width: 2.75rem;
+  padding: 0.25rem 0.75rem;
+  border: 2px solid currentColor;
+  border-radius: 0.5rem;
+  font-size: 1.25rem;
+  text-align: center;
+  text-decoration: none;
+}
+
+/* Hidden from sight, still read by screen readers. display: none would hide it from everyone. */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
