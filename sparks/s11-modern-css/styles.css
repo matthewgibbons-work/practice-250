@@ -1,0 +1,120 @@
+/* Tokens: every color and spacing size lives here, named by its job */
+:root {
+  color-scheme: light dark;
+
+  --bg: #f6f4ef;
+  --surface: #ffffff;
+  --text: #1c1b29;
+  --text-muted: #4b4a5c;
+  --accent: #3730a3;
+  --done-bg: #e6efe6;
+  --done-text: #1f4d2b;
+
+  --space-xs: 0.25rem;
+  --space-s: 0.5rem;
+  --space-m: 1rem;
+  --space-l: 1.5rem;
+  --space-xl: 2.5rem;
+}
+
+/* Dark mode is all dim reds, because red light disturbs night vision least */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0b0606;
+    --surface: #1a0e0e;
+    --text: #e6b3b3;
+    --text-muted: #c48a8a;
+    --accent: #ff6b6b;
+    --done-bg: #241010;
+    --done-text: #c48a8a;
+  }
+}
+
+body {
+  max-width: 40rem;
+  margin: 0 auto;
+  padding: var(--space-m);
+  font-family: system-ui, sans-serif;
+  line-height: 1.5;
+  background-color: var(--bg);
+  color: var(--text);
+}
+
+a {
+  color: var(--accent);
+}
+
+header {
+  margin-block: var(--space-xl);
+}
+
+.intro,
+.hint {
+  color: var(--text-muted);
+}
+
+fieldset {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+legend {
+  margin-block-end: var(--space-m);
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+.checklist {
+  display: grid;
+  gap: var(--space-l);
+  margin: 0 0 var(--space-xl);
+  padding: 0;
+  list-style: none;
+}
+
+/* Matching the surface keeps every item the same width before it's ticked */
+.checklist li {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-s);
+  padding: var(--space-m);
+  border-left: var(--space-xs) solid var(--surface);
+  background-color: var(--surface);
+}
+
+/* A bigger checkbox is easier to tap with cold fingers */
+.checklist input {
+  flex-shrink: 0;
+  width: var(--space-l);
+  height: var(--space-l);
+  margin: 0;
+  accent-color: var(--accent);
+}
+
+.name,
+.hint {
+  display: block;
+}
+
+.name {
+  font-weight: bold;
+}
+
+/* Keyboard users see a thick ring that passes 3:1 in both modes */
+input:focus-visible,
+a:focus-visible {
+  outline: var(--space-xs) solid var(--accent);
+  outline-offset: var(--space-xs);
+}
+
+/* Done = new colors, plus a line through and a thick border, so color isn't the only cue */
+.checklist li:has(:checked) {
+  border-left-color: var(--done-text);
+  background-color: var(--done-bg);
+  color: var(--done-text);
+}
+
+.checklist li:has(:checked) .name {
+  text-decoration: line-through;
+}
